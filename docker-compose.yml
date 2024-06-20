@@ -1,0 +1,15 @@
+#version: '2'
+services:
+  server:
+    restart: always
+    build:
+      context: .
+    volumes:
+      - minecraft-server-creative-vol:/minecraft
+    network_mode: "bridge"
+    ports:
+      - "25565:25565"
+      - "25575:25575"
+
+volumes:
+  minecraft-server-creative-vol:
