@@ -1,0 +1,30 @@
+services:
+  server:
+    restart: always
+    image: itzg/minecraft-bedrock-server
+    volumes:
+      - minecraft-bedrock-creative-vol:/data
+    network_mode: "bridge"
+    ports:
+      - "19132:19132/udp"
+    environment:
+      EULA: "true"
+      VERSION: LATEST
+      SERVER_NAME: bedrock-creative
+      SERVER_PORT: 19132
+      GAMEMODE: creative
+      DIFFICULTY: easy
+      LEVEL_TYPE: DEFAULT
+      ALLOW_CHEATS: "true"
+      ONLINE_MODE: "true"
+      VIEW_DISTANCE: 32
+      TICK_DISTANCE: 4
+      PLAYER_IDLE_TIMEOUT: 30
+      MAX_THREADS: 8
+      LEVEL_NAME: creative
+      LEVEL_SEED: ""
+      DEFAULT_PLAYER_PERMISSION_LEVEL: member
+      TEXTUREPACK_REQUIRED: "false"
+
+volumes:
+  minecraft-bedrock-creative-vol:
